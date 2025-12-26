@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecurePass - Employee Info Validator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="password">Password</button>
+      <button class="tab-btn" data-tab="employee">Employee Info</button>
+    </div>
+
+    <!-- Password Checker Tab -->
+    <div id="password-tab" class="tab-content active">
+      <div class="card">
+        <div class="header">
+          <h1>SecurePass</h1>
+          <p>Advanced password strength analysis</p>
+        </div>
+
+        <div class="input-section">
+          <div class="input-wrapper">
+            <input type="password" id="password" placeholder="Enter your password..." autocomplete="off">
+            <button id="copy-btn" class="unicode-btn" disabled>
+              <span class="btn-icon">⧉</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="strength-section">
+          <div class="strength-header">
+            <span class="strength-label">Password Strength</span>
+            <span id="strength-text" class="strength-value">None</span>
+          </div>
+          <div class="strength-meter">
+            <div id="strength-bar" class="strength-bar"></div>
+          </div>
+        </div>
+
+        <div class="analysis-section">
+          <div class="analysis-item">
+            <span class="analysis-label">Length</span>
+            <span id="length-status" class="analysis-status">0/12</span>
+          </div>
+          <div class="analysis-item">
+            <span class="analysis-label">Character Types</span>
+            <span id="types-status" class="analysis-status">0/4</span>
+          </div>
+          <div class="analysis-item">
+            <span class="analysis-label">Complexity</span>
+            <span id="complexity-status" class="analysis-status">Low</span>
+          </div>
+        </div>
+
+        <div class="requirements-section">
+          <h3>Requirements</h3>
+          <div class="requirements-grid">
+            <div id="req-length" class="requirement">12+ characters</div>
+            <div id="req-uppercase" class="requirement">Uppercase letters</div>
+            <div id="req-lowercase" class="requirement">Lowercase letters</div>
+            <div id="req-numbers" class="requirement">Numbers</div>
+            <div id="req-special" class="requirement">Special characters</div>
+            <div id="req-no-seq" class="requirement">No sequences</div>
+            <div id="req-no-repeat" class="requirement">No repeats</div>
+            <div id="req-no-common" class="requirement">No common words</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Employee Info Tab -->
+    <div id="employee-tab" class="tab-content">
+      <div class="card">
+        <div class="header">
+          <h1>Employee Validator</h1>
+          <p>Validate employee resume information</p>
+        </div>
+
+        <!-- Full Name Field -->
+        <div class="form-field">
+          <label for="fullname">Full Name</label>
+          <div class="input-wrapper">
+            <input type="text" id="fullname" placeholder="Enter full name (e.g., John Doe)" autocomplete="off">
+            <span class="field-status" id="name-status"></span>
+          </div>
+          <div class="validation-feedback" id="name-feedback"></div>
+          <div class="field-strength">
+            <div class="mini-strength-bar" id="name-strength-bar"></div>
+          </div>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <div class="input-wrapper">
+            <input type="email" id="email" placeholder="Enter email (e.g., name@gmail.com)" autocomplete="off">
+            <span class="field-status" id="email-status"></span>
+          </div>
+          <div class="validation-feedback" id="email-feedback"></div>
+          <div class="field-strength">
+            <div class="mini-strength-bar" id="email-strength-bar"></div>
+          </div>
+        </div>
+
+        <!-- Phone Number Field -->
+        <div class="form-field">
+          <label for="phone">Phone Number <span class="hint">(Cambodian)</span></label>
+          <div class="input-wrapper">
+            <input type="tel" id="phone" placeholder="Enter phone (e.g., 012 345 678 or +855 12 345 678)" autocomplete="off">
+            <span class="field-status" id="phone-status"></span>
+          </div>
+          <div class="validation-feedback" id="phone-feedback"></div>
+          <div class="field-strength">
+            <div class="mini-strength-bar" id="phone-strength-bar"></div>
+          </div>
+        </div>
+
+        <!-- Short Bio Field -->
+        <div class="form-field">
+          <label for="bio">Short Bio <span class="char-count" id="bio-char-count">0/500</span></label>
+          <div class="input-wrapper textarea-wrapper">
+            <textarea id="bio" placeholder="Write a short bio about yourself (20-500 characters)" rows="3" maxlength="500"></textarea>
+          </div>
+          <div class="validation-feedback" id="bio-feedback"></div>
+          <div class="field-strength">
+            <div class="mini-strength-bar" id="bio-strength-bar"></div>
+          </div>
+        </div>
+
+        <!-- Skills Field -->
+        <div class="form-field">
+          <label for="skills">Skills <span class="hint">(comma separated)</span></label>
+          <div class="input-wrapper">
+            <input type="text" id="skills" placeholder="Enter skills (e.g., JavaScript, Python, React, Node.js)" autocomplete="off">
+            <span class="field-status" id="skills-status"></span>
+          </div>
+          <div class="validation-feedback" id="skills-feedback"></div>
+          <div class="skills-preview" id="skills-preview"></div>
+          <div class="field-strength">
+            <div class="mini-strength-bar" id="skills-strength-bar"></div>
+          </div>
+        </div>
+
+        <!-- Overall Summary -->
+        <div class="summary-section" id="summary-section" style="display: none;">
+          <h3>Overall Validation Score</h3>
+          <div class="scoring-info">
+            <div class="score-breakdown">
+              <span class="breakdown-item">Full Name: 20pts</span>
+              <span class="breakdown-item">Email: 20pts</span>
+              <span class="breakdown-item">Phone: 20pts</span>
+              <span class="breakdown-item">Bio: 20pts</span>
+              <span class="breakdown-item">Skills: 20pts</span>
+            </div>
+          </div>
+          <div class="summary-content">
+            <div class="summary-score">
+              <span class="score-label">Total Score</span>
+              <span class="score-value" id="overall-score">0/100</span>
+            </div>
+            <div class="summary-status" id="overall-status">
+              <span class="status-icon">○</span>
+              <span class="status-text">Not Validated</span>
+            </div>
+          </div>
+          <div class="strength-meter summary-meter">
+            <div id="overall-strength-bar" class="strength-bar"></div>
+          </div>
+        </div>
+
+        <!-- Validate All Button -->
+        <button id="validate-all-btn" class="validate-btn">
+          Validate All Fields
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

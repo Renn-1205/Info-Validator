@@ -1,0 +1,583 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #ffe6f0 0%, #ffb6c1 100%);
+  color: #2d3748;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.6;
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 520px;
+  width: 90%;
+  padding: 0 20px;
+}
+
+/* ==================== TAB NAVIGATION ==================== */
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.tab-btn:hover {
+  background: #ffe6f0;
+  color: #ff69b4;
+}
+
+.tab-btn.active {
+  background: #ff69b4;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== CARD STYLES ==================== */
+
+.card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 12px 40px rgba(255, 182, 193, 0.4);
+  border: 2px solid #ffb6c1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #ff69b4;
+  margin-bottom: 8px;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+}
+
+.header p {
+  color: #666666;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* ==================== INPUT STYLES ==================== */
+
+.input-section {
+  margin-bottom: 24px;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+  width: 100%;
+  padding: 14px 50px 14px 16px;
+  border: 2px solid #ffb6c1;
+  border-radius: 14px;
+  font-size: 15px;
+  font-family: inherit;
+  background: #fff5f7;
+  color: #2d3748;
+  transition: all 0.2s ease;
+}
+
+.input-wrapper textarea {
+  padding: 14px 16px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.textarea-wrapper {
+  margin-bottom: 0;
+}
+
+.input-wrapper input:focus,
+.input-wrapper textarea:focus {
+  outline: none;
+  border-color: #ff69b4;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+}
+
+.input-wrapper input::placeholder,
+.input-wrapper textarea::placeholder {
+  color: #a0a0a0;
+}
+
+/* ==================== BUTTON STYLES ==================== */
+
+.unicode-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffe6f0;
+  border: 2px solid #ffb6c1;
+  color: #ff69b4;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unicode-btn:hover:not(:disabled) {
+  background: #ff69b4;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.unicode-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: transparent;
+  color: #cccccc;
+  border-color: #cccccc;
+}
+
+.unicode-btn.success {
+  background: #2ed573;
+  border-color: #2ed573;
+  color: white;
+}
+
+#copy-btn {
+  right: 8px;
+}
+
+.validate-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  margin-top: 24px;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+}
+
+.validate-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+}
+
+.validate-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.strength-section {
+  margin-bottom: 24px;
+}
+
+.strength-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.strength-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+}
+
+.strength-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff69b4;
+}
+
+.strength-meter {
+  width: 100%;
+  height: 8px;
+  background: #ffe6f0;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #ffb6c1;
+}
+
+.strength-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #ffb6c1, #ff69b4, #ff1493, #dc143c, #b22222);
+}
+
+/* ==================== ANALYSIS SECTION ==================== */
+
+.analysis-section {
+  margin-bottom: 24px;
+}
+
+.analysis-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ffe6f0;
+}
+
+.analysis-item:last-child {
+  border-bottom: none;
+}
+
+.analysis-label {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 400;
+}
+
+.analysis-status {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+/* ==================== REQUIREMENTS SECTION ==================== */
+
+.requirements-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 16px;
+}
+
+.requirements-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.requirement {
+  padding: 10px 12px;
+  background: #fff5f7;
+  border: 2px solid #ffb6c1;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #666666;
+  text-align: center;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.requirement.met {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.requirement.partial {
+  background: #fff3cd;
+  border-color: #ffc107;
+  color: #856404;
+}
+
+/* ==================== FORM FIELD STYLES ==================== */
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+
+.form-field .hint {
+  font-weight: 400;
+  color: #999999;
+  font-size: 12px;
+}
+
+.char-count {
+  float: right;
+  font-weight: 400;
+  font-size: 12px;
+  color: #666666;
+}
+
+/* ==================== FIELD STATUS ==================== */
+
+.field-status {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.field-status.valid {
+  color: #2ed573;
+}
+
+.field-status.invalid {
+  color: #ff4757;
+}
+
+/* ==================== MINI STRENGTH BAR ==================== */
+
+.field-strength {
+  margin-top: 6px;
+}
+
+.mini-strength-bar {
+  height: 4px;
+  width: 0%;
+  background: #666666;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ==================== VALIDATION FEEDBACK ==================== */
+
+.validation-feedback {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.feedback-item {
+  display: block;
+  padding: 4px 0;
+}
+
+.feedback-item.error {
+  color: #ff4757;
+}
+
+.feedback-item.warning {
+  color: #ffa726;
+}
+
+.feedback-item.success {
+  color: #2ed573;
+}
+
+.feedback-item.info {
+  color: #3742fa;
+  margin-top: 4px;
+}
+
+/* ==================== SKILLS PREVIEW ==================== */
+
+.skills-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #ffe6f0, #ffb6c1);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ff1493;
+  border: 1px solid #ff69b4;
+}
+
+/* ==================== SUMMARY SECTION ==================== */
+
+.summary-section {
+  margin-top: 24px;
+  padding: 20px;
+  background: #fff5f7;
+  border-radius: 16px;
+  border: 2px solid #ffb6c1;
+}
+
+.summary-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 12px;
+}
+
+.scoring-info {
+  margin-bottom: 16px;
+}
+
+.score-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.breakdown-item {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: #ffe6f0;
+  border-radius: 12px;
+  color: #ff69b4;
+  font-weight: 500;
+}
+
+.summary-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.summary-score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.score-label {
+  font-size: 12px;
+  color: #666666;
+}
+
+.score-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ff69b4;
+}
+
+.summary-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-icon {
+  font-size: 20px;
+}
+
+.status-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.summary-meter {
+  margin-top: 12px;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .requirements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab-btn {
+    width: 100%;
+  }
+
+  .summary-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* ==================== SCROLLBAR STYLES ==================== */
+
+.requirements-section {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.requirements-section::-webkit-scrollbar {
+  width: 4px;
+}
+
+.requirements-section::-webkit-scrollbar-track {
+  background: #fff5f7;
+}
+
+.requirements-section::-webkit-scrollbar-thumb {
+  background: #ffb6c1;
+  border-radius: 2px;
+}
+
+.requirements-section::-webkit-scrollbar-thumb:hover {
+  background: #ff69b4;
+}
