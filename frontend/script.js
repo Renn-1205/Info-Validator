@@ -62,7 +62,7 @@ const overallStatus = document.getElementById('overall-status');
 // API Configuration
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:3000'
-  : 'YOUR_BACKEND_URL_HERE';
+  : 'https://info-validator-3234.onrender.com';
 
 // ==================== TAB NAVIGATION ====================
 
